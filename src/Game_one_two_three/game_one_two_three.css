@@ -17,12 +17,12 @@
   color: white;
 }
 .container {
-  width: 75%;
-  margin: 20px auto;
+  width: 90%;
+  margin: 80px auto;
   text-align: center;
 }
 p {
-  font-size: 50px;
+  font-size: 30px;
 }
 button {
   border-radius: 15px;

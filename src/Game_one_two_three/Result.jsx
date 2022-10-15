@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { playGameAction } from "../redux/actions/playGame.Action";
+import { endGameAcion, playGameAction } from "../redux/actions/playGame.Action";
 
 class Result extends Component {
   render() {
     return (
-      <div className="result mx-5 my-auto">
+      <div className="result my-5">
+        <h1 className="text-warning display-4" style={{ letterSpacing: 4 }}>
+          {this.props.thongBao}
+        </h1>
         <p>
-          Số bàn thắng:{" "}
-          <span className="text-success">{this.props.soBanThang}</span>
+          Số bàn thắng:
+          <span className="text-success mx-2">{this.props.soBanThang}</span>
         </p>
         <p>
-          Số lần chơi:{" "}
-          <span className="text-primary">{this.props.soLanChoi}</span>
+          Số lần chơi:
+          <span className="text-primary mx-2">{this.props.soLanChoi}</span>
         </p>
         <button
           onClick={() => {
@@ -32,13 +35,22 @@ let mapStateToProps = (state) => {
   return {
     soBanThang: state.reducerGameOneTwoThree.soBanThang,
     soLanChoi: state.reducerGameOneTwoThree.soLanChoi,
+    thongBao: state.reducerGameOneTwoThree.thongBao,
   };
 };
 
 let mapDispatchToProps = (dispatch) => {
   return {
     playGame: () => {
-      dispatch(playGameAction());
+      let count = 0;
+      let randomComputer = setInterval(() => {
+        dispatch(playGameAction());
+        count++;
+        if (count > 10) {
+          clearInterval(randomComputer);
+          dispatch(endGameAcion());
+        }
+      }, 100);
     },
   };
 };

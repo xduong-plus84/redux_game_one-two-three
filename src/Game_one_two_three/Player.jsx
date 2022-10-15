@@ -8,8 +8,17 @@ class Player extends Component {
     console.log(this.props.player);
     return (
       <div className="player d-flex flex-column align-items-center">
-        <div className="speech-bubble mb-2 p-2 ml-4">
-          <img src={`./img/${this.props.player}.png`} style={{ width: 100 }} />
+        <div className="speech-bubble ml-4" style={{ width: 150, height: 100 }}>
+          <img
+            src={`./img/${this.props.player}.png`}
+            style={{
+              width: 100,
+              position: "absolute",
+              left: 0,
+              right: 0,
+              margin: "0 auto",
+            }}
+          />
         </div>
 
         <img src="./img/player.png" style={{ width: 200 }} />

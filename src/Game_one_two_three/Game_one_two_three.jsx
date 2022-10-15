@@ -9,22 +9,22 @@ export default class Game_one_two_three extends Component {
     return (
       <div className="gameOneTwoThree">
         <div className="container">
-          <h1 style={{ color: "yellow", letterSpacing: 4 }}>
-            I'm Iron man.
-            <br /> I'll kick your ass !!
-          </h1>
-          <div className="d-flex justify-content-around my-2">
-            <Player />
-
-            <Result />
-
-            <PlayerComputer />
+          <div className="row my-2">
+            <div className="col-3">
+              <Player />
+            </div>
+            <div className="col-6">
+              <Result />
+            </div>
+            <div className="col-3">
+              <PlayerComputer />
+            </div>
           </div>
         </div>
         <div className="footerGame">
           <img
             src="./img/bgGame.png"
-            style={{ width: "100vw", height: "40vh" }}
+            style={{ width: "100vw", height: "50vh" }}
           />
         </div>
       </div>
